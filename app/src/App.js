@@ -18,6 +18,9 @@ import YourPupNavigator from './yourPup/YourPupNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 import SettingsNavigator from './settings/SettingsNavigator';
 import useDarkMode from './shared/hooks/useDarkMode';
+import TrainingNavigator from './training/TrainingNavigator';
+import StatsNavigator from './stats/StatsNavigator';
+import ActivitiesNavigator from './activities/ActivitiesNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -30,15 +33,28 @@ const App: () => Node = () => {
         theme={{
           ...theme,
         }}>
-        <Tab.Navigator initialRouteName="YourPup">
+        <Tab.Navigator
+          initialRouteName="YourPup"
+          labeled={true}
+          shifting={false}>
           <Tab.Screen
             name="YourPup"
             component={YourPupNavigator}
             options={{title: 'Your pup', tabBarIcon: 'dog'}}
           />
           <Tab.Screen
+            name="Activities"
+            component={ActivitiesNavigator}
+            options={{title: 'Activities', tabBarIcon: 'slide'}}
+          />
+          <Tab.Screen
+            name="Stats"
+            component={StatsNavigator}
+            options={{title: 'Stats', tabBarIcon: 'chart-bar'}}
+          />
+          <Tab.Screen
             name="Training"
-            component={YourPupNavigator}
+            component={TrainingNavigator}
             options={{title: 'Training', tabBarIcon: 'school'}}
           />
           <Tab.Screen
