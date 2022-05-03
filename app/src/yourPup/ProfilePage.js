@@ -12,23 +12,17 @@ import {useWindowDimensions, View} from 'react-native';
 import Profile from './components/Header';
 import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
 import {overlay, withTheme} from 'react-native-paper';
-import {ActivitiesTab} from './tabs/Activities';
 import {OverviewTab} from './tabs/Overview';
-import Edit from './components/Edit';
 
 const renderScene = SceneMap({
   overview: OverviewTab,
-  activities: ActivitiesTab,
 });
 
 const ProfilePage: () => Node = ({theme}) => {
   const layout = useWindowDimensions();
 
   const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
-    {key: 'overview', title: 'Overview'},
-    {key: 'activities', title: 'Activities'},
-  ]);
+  const [routes] = React.useState([{key: 'overview', title: 'Overview'}]);
 
   const {colors} = theme;
 
